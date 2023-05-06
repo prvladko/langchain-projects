@@ -92,3 +92,5 @@ target/
 
 # Models
 .bin
+
+.history
