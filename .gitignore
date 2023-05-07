@@ -97,3 +97,6 @@ target/
 
 /venv
 /myenv
+/faiss.pkl
+/slack/replit/training
+/trainig.index
