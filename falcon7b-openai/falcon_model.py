@@ -19,7 +19,7 @@ HUGGINGFACEHUB_API_TOKEN = os.environ["HUGGINGFACEHUB_API_TOKEN"]
 # Load the LLM model from the HuggingFaceHub
 # --------------------------------------------------------------
 
-repo_id = "tiiuae/falcon-7b-instruct"  # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
+repo_id = "tiiuae/falcon-40b-instruct"  # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
 falcon_llm = HuggingFaceHub(
     repo_id=repo_id, model_kwargs={"temperature": 0.1, "max_new_tokens": 500}
 )
@@ -64,7 +64,7 @@ docs = text_splitter.split_documents(transcript)
 # --------------------------------------------------------------
 
 # Add map_prompt and combine_prompt to the chain for custom summarization
-chain = load_summarize_chain(falcon_llm, chain_type="map_reduce", verbose=True)
+chain = load_summarize_chain(falcon_llm, map_prompt="some prompt", chain_type="map_reduce", verbose=True)
 print(chain.llm_chain.prompt.template)
 print(chain.combine_document_chain.llm_chain.prompt.template)
 
